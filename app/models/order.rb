@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  attr_accessible :address, :email, :name, :pay_type
+  attr_accessible :address, :email, :name, :pay_type, :cart
 
   PAYMENT_TYPES = [ "Check", "Credit Card", "Purchase Order"]
 
