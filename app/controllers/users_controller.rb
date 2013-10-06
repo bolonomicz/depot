@@ -41,6 +41,12 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
+    begin
+      @user.destroy
+      flash[:notice] = "User #{@user.name} deleted"
+    rescue Exception => e
+      flash[:notice] = e.message
+    end
 
     respond_to do |format|
       if @user.save
